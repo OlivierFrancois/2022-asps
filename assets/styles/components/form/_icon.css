@@ -1,0 +1,37 @@
+.form-icon {
+    @apply relative w-full;
+    &>i:nth-child(2) {
+        @apply right-0;
+    }
+    &>.form-input:nth-child(1){
+        @apply pr-9;
+    }
+    i:nth-child(1) {
+        @apply left-0 ;
+    }
+    &>.form-input:nth-child(2){
+        @apply pl-9;
+    }
+    &>i{
+        @apply pointer-events-none w-10 text-4.5 absolute top-0 flex items-center justify-center h-full ;
+    }
+}
+
+.form-icon-solid {
+    @apply relative w-full;
+    &>i:nth-child(2) {
+        @apply right-0 rounded-r border-l-0 ;
+    }
+    &>.form-input:nth-child(1){
+        @apply pr-11;
+    }
+    &>i:nth-child(1) {
+        @apply left-0 rounded-l border-r-0 ;
+    }
+    &>.form-input:nth-child(2){
+        @apply pl-11;
+    }
+    &>i{
+        @apply top-0 pointer-events-none w-10 text-4.5 absolute flex items-center justify-center h-full bg-theme-gray-asleep bg-theme-gray-light ;
+    }
+}

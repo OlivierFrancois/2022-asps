@@ -1,0 +1,58 @@
+
+.form-checkbox{
+
+    @apply appearance-none bg-theme-gray-soft h-5 w-5 min-h-5 min-w-5 rounded grid place-content-center relative;
+    &:hover{
+        @apply bg-secondary;
+        &::before{
+            @apply bg-theme-gray-white;
+        }
+    }
+    &:checked{
+        @apply bg-primary;
+        &:hover{
+            @apply bg-secondary;
+            &::after{
+                @apply border-secondary;
+            }
+        }
+        &+label{
+            @apply font-medium;
+        }
+        &::after{
+            @apply border-primary;
+        }
+    }
+
+    &:disabled{
+        @apply bg-theme-gray-soft;
+        &::before{
+            @apply bg-theme-gray-soft;
+        }
+        &::after{
+            @apply border-theme-gray-white;
+        }
+        &:hover{
+            @apply bg-theme-gray-soft;
+            &::after{
+                @apply border-theme-gray-white;
+            }
+        }
+
+        &+label{
+            @apply text-theme-gray-asleep;
+        }
+    }
+
+    &::before{
+        content: '';
+        @apply bg-theme-gray-white h-3.5 w-3.5 rounded-sm;
+    }
+
+    &::after{
+        content: '';
+        display: inline-block;
+        @apply absolute h-3 w-1.5 border-white border-b-3 border-r-3 inset-2/4 -translate-x-1/2 -translate-y-3/5 rotate-45;
+    }
+    
+}

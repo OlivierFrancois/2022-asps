@@ -1,3 +1,22 @@
+let plugin = require('tailwindcss/plugin')
+const colors = require('tailwindcss/colors')
+
+function generateColor(cssVariable) {
+    return () => {
+        return `var(${cssVariable})`
+    }
+}
+
+function generateFontsizes(start = 1, end = 8, step = 0.5){
+    let cursor = start;
+    let sizes = {};
+    while(cursor <= (end)){
+        sizes[cursor] = (0.25 * cursor) + 'rem';
+        cursor += step;
+    }
+    return sizes
+}
+
 module.exports = {
     mode: "jit",
     content: [
@@ -6,34 +25,55 @@ module.exports = {
     ],
     theme: {
         extend: {
+            inset: {
+                "6.5" : "1.625rem"
+            },
+            minWidth: {
+                "1.5" : "0.375rem",
+                "3.5" : "0.875rem",
+                "5" : "1.25rem",
+            },
+            minHeight: {
+                "1.5" : "0.375rem",
+                "3.5" : "0.875rem",
+                "5" : "1.25rem",
+            },
             colors : {
-                mariboo:{
-                    primary: '#ffbf14',
-                    dark: '#e2a90c',
-                    darker: '#bf8302',
-                },
-                livounet:{
-                    primary: '#0f718c',
-                    dark: '#0c5367',
-                    darker: '#083a48',
-                },
+                'primary': '#001D4A',
+                'primary-active': '#001D4A',
+                'primary-hover': '#006992',
+
+                'secondary': '#ECA400',
+                'secondary-active': '#EAF8BF',
+                'secondary-hover': '#EAF8BF',
+
                 theme:{
                     light: '#EDEFF5',
+                    lighter: '#F7F8FC',
+                    gray: {
+                        logo: '#58595B',
+                        asleep: '#778192',
+                        soft: '#DFE1E6',
+                        white: '#FFFFFF',
+                        light: '#EDEFF5',
+                        lighter: '#F7F8FC'
+                    },
                     dark: '#25262D',
+                    darkActive: '#434552',
+                    darkHover: '#32343D',
                 },
-                header: '#333344',
-                light: '#f1f1f1',
             },
-            height: {
-                header: '5rem',
-                headermin: '45px',
-            },
-            transitionProperty: {
-                fweight: "font-weight"
+            borderWidth: {
+                '3': '3px',
             },
             fontFamily: {
-                logo: ["Gill Sans MT"]
-            }
+                logo: ["Gill Sans MT"],
+                poppin: ["Poppins"]
+            },
+            fontSize : generateFontsizes(),
+            spacing: {
+                '3/5' : '60%'
+            },
         }
     },
     variants: {
@@ -43,5 +83,11 @@ module.exports = {
             ringWidth: ['hover'],
         }
     },
-    plugins: []
+    plugins: [
+        plugin(function ({ addVariant }) {
+            // Add a `third` variant, ie. `third:pb-0`
+            addVariant('selected', '&.active')
+        }),
+        require('./assets/tailwind/buttons'),
+    ]
 }

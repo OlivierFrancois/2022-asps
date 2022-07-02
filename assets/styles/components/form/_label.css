@@ -1,0 +1,4 @@
+label.form-required:after{
+    content: " *";
+    @apply text-red-500;
+}

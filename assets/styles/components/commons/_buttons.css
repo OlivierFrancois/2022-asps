@@ -1,0 +1,43 @@
+.btn{
+    @apply px-5 py-1.5 rounded transition-all text-base;
+    &-outline{
+        @apply border bg-transparent hover:bg-transparent text-inherit;
+    }
+    &-ghost{
+        @apply bg-transparent text-inherit;
+    }
+    &-invert{
+        @apply text-black bg-transparent hover:bg-transparent h-auto p-0;
+    }
+    &-circle{
+        @apply flex items-center justify-center rounded-full w-8 h-8 text-3.5 p-0;
+        &.btn-xs{
+            @apply w-6 h-6 text-2.5 p-0;
+        }
+        &.btn-sm{
+            @apply w-7 h-7 text-3 p-0;
+        }
+        &.btn-lg{
+            @apply w-9 h-9 text-4 p-0;
+        }
+        &.btn-xl{
+            @apply w-10 h-10 text-4.5 p-0;
+        }
+    }
+    &-xs{
+        @apply px-3 py-0.5 text-3;
+    }
+    &-sm{
+        @apply px-4 py-1 text-3.5;
+    }
+    &-md{
+        @apply px-5 py-1.5 text-5;
+    }
+    &-lg{
+        @apply px-6 py-2 text-4.5;
+    }
+    &-xl{
+        @apply px-7 py-2.5 text-6;
+    }
+   
+}

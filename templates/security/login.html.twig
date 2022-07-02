@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adoxia | Authentication{% endblock %}
+
+{% block login %}
+    <div class="flex min-h-screen justify-center items-center bg-gray-200">
+        <form method="post" action="{{ path('app_login') }}"  class="flex flex-col items-center gap-4 p-5 relative border bg-white rounded-xl shadow-xl">
+
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+
+            {#<div class="flex justify-center items-center">#}
+            {#    {% include "svg/logo.svg.twig" %}#}
+            {#</div>#}
+            
+            <div style="width: 150px;">
+                <img class="w-full h-auto" src="{{ asset('assets/images/logo.svg') }}" alt="">
+            </div>
+
+            <h1 class="text-4.5 font-medium">ASPS - Administration</h1>
+
+            {% if error %}
+                <div class="h-4">
+                        <span class="text-md font-bold h-0 text-red-500">{{ error.messageKey|trans(error.messageData, 'security') }}</span>
+                </div>
+            {% endif %}
+
+            <div class="flex flex-col gap-4">
+                <div class="form-group">
+                    <label for="inputLogin">Identifiant</label>
+                    <input placeholder="Votre identifiant" type="text" value="{{ last_username }}" name="_username" id="inputLogin" class="form-input" autocomplete="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword">Mot de passe</label>
+                    <input placeholder="Votre mot de passe" type="password" name="_password" id="inputPassword" class="form-input" autocomplete="current-password" required>
+                </div>
+            </div>
+
+            <button class="w-full btn btn-primary" type="submit">Connexion</button>
+        </form>
+    </div>
+
+{% endblock %}

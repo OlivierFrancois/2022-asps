@@ -1,0 +1,30 @@
+.form-input, .form-textarea {
+    @apply bg-theme-gray-lighter h-10 py-2 px-2 rounded border-2 border-theme-gray-soft box-border w-full transition-all
+    focus:outline-primary focus-visible:outline-primary hover:outline-primary;
+    &[type='color']{
+        @apply p-1;
+    }
+}
+
+.form-textarea {
+    @apply h-auto;
+}
+
+.form{
+    &-xs{
+        @apply w-12;
+    }
+    &-sm{
+        @apply w-24;
+    }
+    &-md{
+        @apply w-48;
+    }
+    &-lg{
+        @apply w-96;
+    }
+    &-xl{
+        @apply w-[36rem];
+    }
+}
+

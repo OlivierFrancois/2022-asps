@@ -1,0 +1,47 @@
+.form-radio{
+
+    @apply appearance-none bg-theme-gray-soft h-5 w-5 min-w-5 min-h-5 rounded-full grid place-content-center;
+    &:hover{
+        @apply bg-secondary;
+        &::before{
+            @apply bg-theme-gray-white;
+        }
+    }
+    &:checked{
+        @apply bg-primary;
+        &::before{
+            @apply bg-theme-gray-white h-1.5 w-1.5;
+        }
+        &:hover{
+            @apply bg-secondary;
+        }
+        &+label{
+            @apply font-medium;
+        }
+    }
+
+    &:disabled{
+        @apply bg-theme-gray-soft;
+        &::before{
+            @apply bg-theme-gray-soft h-1.5 w-1.5;
+        }
+        &:hover{
+            @apply bg-theme-gray-soft;
+        }
+        &:checked{
+            &::before{
+                @apply bg-theme-gray-white h-1.5 w-1.5;
+            }
+        }
+
+        &+label{
+            @apply text-theme-gray-asleep;
+        }
+    }
+
+    &::before{
+        content: '';
+        @apply bg-theme-gray-white h-3.5 w-3.5 rounded-full;
+    }
+
+}

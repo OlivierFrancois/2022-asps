@@ -1,0 +1,14 @@
+.form-group, .form-col {
+    @apply flex flex-col gap-1 items-start;
+}
+
+.form-choices {
+    @apply flex gap-4 items-center;
+}
+.form-choice {
+    @apply flex gap-2 items-center;
+}
+
+.form-row {
+    @apply flex items-center justify-between;
+}
